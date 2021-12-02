@@ -24,11 +24,11 @@ body{
 }
 .navbar{
     display: flex;
-    align-items: center;
+    align-items: center; 
     padding: 0px 100px 0px 0px;
 }
 .navbar a{
-    font-size: 18px;
+    font-size: 20px;
     color: #E5E7EB;
     text-decoration: none;
     margin: 20px;
