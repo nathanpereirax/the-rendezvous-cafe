@@ -6,7 +6,7 @@ body{
     font-family: Montserrat, sans-serif;
     display: flex;
     flex-direction: column;
-    background-image: url("background.jpeg");
+    background-image: url("background.png");
     background-position: center;
     background-repeat: repeat;
     background-attachment: fixed;
@@ -30,7 +30,8 @@ body{
 .navbar{
     display: flex;
     justify-content: flex-end;
-    padding-right: 3%;
+    padding-right: 3%;filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
 .navbar a{
     color: #E5E7EB;
@@ -107,7 +108,7 @@ body{
 .cta{
     display: flex;
     margin: 7% 10% 7% 10%;
-    padding: 1% 5% 1% 5%;
+    padding: 0% 5% 0% 5%;
     border-radius: 8px;
     align-items: center;
     background-color: #3b82f6;
@@ -134,7 +135,7 @@ body{
     color: #F9FAF8;
     border: 2px solid #F9FAF8;
     border-radius: 8px;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 25px 10px 25px;
     transition-duration: 0.4s;
 }
 .cta-button > button:hover{
