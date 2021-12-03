@@ -30,8 +30,7 @@ body{
 .navbar{
     display: flex;
     justify-content: flex-end;
-    padding-right: 3%;filter: blur(8px);
-    -webkit-filter: blur(8px);
+    padding-right: 3%;
 }
 .navbar a{
     color: #E5E7EB;
