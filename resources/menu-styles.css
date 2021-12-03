@@ -20,10 +20,10 @@ body{
     align-items: center;
     justify-content: space-between;
 }
-.header-logo>img{
+.header-logo > a > img{
     display: flex;
     padding-left: 5%;
-    width: 40%;
+    width: 20%;
     min-width: 100px;
     height: auto;
 }
