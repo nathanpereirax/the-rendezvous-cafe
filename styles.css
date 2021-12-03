@@ -20,6 +20,7 @@ body{
     padding-left: 5%;
     width: 40%;
     min-width: 100px;
+    max-width: 1000px;
     height: auto;
 }
 .navbar{
