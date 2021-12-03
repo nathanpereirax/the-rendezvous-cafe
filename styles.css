@@ -1,5 +1,5 @@
 body{
-    background-color: #FFFFFF;
+    background-color: #006D77;
     padding: 0;
     margin: 0;
     text-align: center;
@@ -44,7 +44,6 @@ body{
     align-items: flex-start;
     justify-content: space-around;
     padding-top: 10%;
-    padding-bottom: 13%;
 }
 .info-text{
     display: flex;
