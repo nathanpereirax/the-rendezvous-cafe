@@ -18,9 +18,8 @@ body{
 .header-logo>img{
     display: flex;
     padding-left: 5%;
-    width: 40%;
+    width: 20%;
     min-width: 100px;
-    max-width: 1000px;
     height: auto;
 }
 .navbar{
