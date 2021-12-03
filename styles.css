@@ -44,7 +44,9 @@ body{
     align-items: flex-start;
     justify-content: space-around;
     padding-top: 5%;
-    padding-bottom: 5%;
+    padding-bottom: 10%;
+    margin-inline: auto;
+    width: min(90%, 90.5rem);
 }
 .info-text{
     display: flex;
