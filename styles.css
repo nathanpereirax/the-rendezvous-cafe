@@ -53,6 +53,7 @@ body{
     align-items: flex-start;
     text-align: left;
     padding-left: 10%;
+    padding-right: 10%;
 }
 .main-title{
     font-size: 45px;
