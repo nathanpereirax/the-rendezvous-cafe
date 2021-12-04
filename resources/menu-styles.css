@@ -71,31 +71,43 @@ body{
     flex-wrap: wrap;
     flex-direction: row;
     padding-top: 5%;
+    margin-inline: auto;
+    width: min(90%, 70.5rem);
 }
 .box{
     flex: 1 0 21%;
+    padding-bottom: 10%;
 }
-.box img{
-    border: 3px solid #3b82f6;
-    border-radius: 12px;
-    width: 30vw;
-    height: 30vw;
+@media screen and (min-width: 70em){
+    .box{
+        padding-inline: 5%;
+    }
 }
 
-@media screen and (min-width: 40em){
+.box img{
+    width: 30vw;
+    height: 30vw;
+    object-fit: fill;
+}
+
+@media screen and (min-width: 70em){
     .box img{
-        border: 3px solid #3b82f6;
-        border-radius: 12px;
-        width: 10vw;
-        height: 10vw;
+        width: 15vw;
+        height: 15vw;
+        object-fit: cover;
     }
 }
 
 .box p{
-    font-size: 16px;
+    font-size: 1rem;
     color: #006d77;
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 10px;
     background-color: #edf6f9;
+}
+@media screen and (min-width: 70em){
+    .box p{
+        font-size: 1.5rem;
+    }
 }
