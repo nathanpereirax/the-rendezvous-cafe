@@ -39,6 +39,8 @@ body{
     width: 2.5%;
     min-width: 30px;
 }
+
+
 .sec2{
     display: flex;
     flex-direction: column;
@@ -58,7 +60,7 @@ body{
     text-decoration: underline;
 }
 
-@media screen and (min-width: 400px){
+@media screen and (min-width: 40em){
     .title{
         font-size: 40px;
     }
@@ -80,7 +82,7 @@ body{
     height: 30vw;
 }
 
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 40em){
     .box img{
         border: 3px solid #3b82f6;
         border-radius: 12px;
