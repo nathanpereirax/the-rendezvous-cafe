@@ -1,0 +1,59 @@
+body{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url("background inverted.png");
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: contain;
+}
+
+.header{
+    display: flex;
+    background-color: #000000;
+    color: #F9FAF8;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-logo > a > img{
+    display: flex;
+    padding-left: 5%;
+    width: 20%;
+    min-width: 100px;
+    height: auto;
+}
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3%;
+}
+.navbar a{
+    color: #E5E7EB;
+    text-decoration: none;
+    margin: 20px;
+    width: max(2%, 25px);
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    margin-inline: auto;
+    flex-wrap: nowrap;
+    color: #1F2937;
+    width: min(80%, 80rem);
+}
+.column-left{
+    
+}
+.column-right{
+    
+}
+.image > a > img{
+    margin-block: 1rem;
+    width: 90%;
+    height: auto;
+}
