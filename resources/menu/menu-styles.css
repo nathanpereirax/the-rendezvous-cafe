@@ -11,6 +11,7 @@ body {
   background-repeat: repeat;
   background-attachment: fixed;
   background-size: contain;
+  overflow-x: hidden;
 }
 
 .header {
@@ -27,22 +28,81 @@ body {
   min-width: 100px;
   height: auto;
 }
-.navbar {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 3%;
-}
-.navbar a {
-  color: #e5e7eb;
-  text-decoration: none;
-  margin: 20px;
-  width: 2.5%;
-  min-width: 30px;
-}
-.navbar > a > svg {
-  fill: #e5e7eb;
+@media (min-width: 55em) {
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3%;
+  }
+  .navbar > a {
+    color: #e5e7eb;
+    text-decoration: none;
+    padding-inline: min(3vw, 1rem);
+    width: min(3%, 30px);
+  }
+  .navbar > a > svg {
+    fill: #e5e7eb;
+  }
+
+  .navbar > a > p {
+    display: none;
+  }
+  .mobile-nav-toggle {
+    display: none;
+  }
 }
 
+@media (max-width: 55em) {
+  .navbar {
+    display: flex;
+    z-index: 500;
+    position: fixed;
+    inset: 0 0 0 30%;
+    background: hsl(0 0% 0% / 0.75);
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 350ms ease-out;
+  }
+
+  @supports (backdrop-filter: blur(1rem)) {
+    .navbar {
+      background: hsl(0 0% 0% / 0.5);
+      backdrop-filter: blur(1rem);
+    }
+  }
+
+  .navbar[data-visible="true"] {
+    transform: translateX(0%);
+  }
+
+  .mobile-nav-toggle {
+    margin-right: 5%;
+    background-image: url("../../resources/hamburger-menu.svg");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    z-index: 9999;
+    width: 10%;
+    max-width: 2em;
+    min-width: 1.8rem;
+    aspect-ratio: 1;
+  }
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url("../../resources/x.svg");
+  }
+
+  .navbar > a {
+    color: #e5e7eb;
+    text-decoration: none;
+    margin: 1vw;
+    padding-block: 5vh;
+  }
+  .navbar > a > svg {
+    fill: #e5e7eb;
+    width: 30px;
+  }
+}
 .sec2 {
   display: flex;
   flex-direction: column;
@@ -78,29 +138,31 @@ body {
 }
 .box {
   flex: 1 0 21%;
-  padding-bottom: 10%;
+  padding-top: 5%;
+  margin-bottom: 10%;
+  background: #edf6f9;
+  margin-inline: 5%;
 }
-@media screen and (min-width: 70em) {
+@media screen and (min-width: 70em) and (max-width: 100em) {
   .box {
-    padding-inline: 5%;
+    margin-inline: 10%;
   }
 }
 
-.box img {
+.box > img {
   width: 30vw;
   height: 30vw;
-  object-fit: fill;
 }
 
 @media screen and (min-width: 70em) {
-  .box img {
+  .box > img {
     width: 15vw;
     height: 15vw;
     object-fit: cover;
   }
 }
 
-.box p {
+.box > p {
   font-size: 0.8rem;
   color: #006d77;
   margin-inline: 20%;
