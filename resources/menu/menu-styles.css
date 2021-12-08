@@ -39,6 +39,9 @@ body {
   width: 2.5%;
   min-width: 30px;
 }
+.navbar > a > svg {
+  fill: #e5e7eb;
+}
 
 .sec2 {
   display: flex;
