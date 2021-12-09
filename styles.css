@@ -33,7 +33,7 @@ body {
     color: #e5e7eb;
     text-decoration: none;
     padding-inline: min(3vw, 1rem);
-    width: min(3%, 30px);
+    width: 30px;
     aspect-ratio: 1;
   }
   .navbar > a > svg {
