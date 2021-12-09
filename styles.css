@@ -34,6 +34,7 @@ body {
     text-decoration: none;
     padding-inline: min(3vw, 1rem);
     width: min(3%, 30px);
+    aspect-ratio: 1;
   }
   .navbar > a > svg {
     fill: #e5e7eb;
@@ -96,6 +97,7 @@ body {
   .navbar > a > svg {
     fill: #e5e7eb;
     width: 30px;
+    aspect-ratio: 1;
   }
 }
 
