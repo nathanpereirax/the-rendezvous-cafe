@@ -175,3 +175,52 @@ body {
     font-size: 1.3rem;
   }
 }
+
+.container-footer {
+  background-color: #006d77;
+}
+.footer {
+  display: flex;
+  margin-inline: auto;
+  width: min(90%, 70.5rem);
+  color: #e5e7eb;
+  padding-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.contact-us {
+  text-align: left;
+  width: min(50%, 35.25rem);
+  padding-inline: 5%;
+}
+.contact-us > h2 {
+  padding-bottom: 0.8rem;
+}
+.contact-us > p > a:link,
+:visited,
+:active {
+  color: #e5e7eb;
+  text-decoration: none;
+}
+.contact-us > p > a:hover {
+  color: #e5e7eb;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 50em) {
+  .contact-us {
+    font-size: 0.75rem;
+  }
+  .contact-us > h2 {
+    font-size: 0.9rem;
+  }
+}
+
+.logo {
+  width: min(50%, 35.25rem);
+}
+.logo > img {
+  width: 40%;
+  min-width: 8rem;
+  height: auto;
+}
