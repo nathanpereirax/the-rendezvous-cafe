@@ -6,7 +6,7 @@ body {
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  background-image: url("../background.png");
   background-position: center;
   background-repeat: repeat;
   background-attachment: fixed;
@@ -79,7 +79,7 @@ body {
 
   .mobile-nav-toggle {
     margin-right: 5%;
-    background-image: url("../../resources/hamburger-menu.svg");
+    background-image: url("../../../resources/hamburger-menu.svg");
     background-color: transparent;
     background-repeat: no-repeat;
     border: 0;
@@ -90,7 +90,7 @@ body {
     aspect-ratio: 1;
   }
   .mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("../../resources/x.svg");
+    background-image: url("../../../resources/x.svg");
   }
 
   .navbar > a {
