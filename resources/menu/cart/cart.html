@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>The Rendezvous Café - Menu</title>
-    <script src="../../js/nav.js" defer></script>
+    <script src="../../../js/nav.js" defer></script>
 </head>
 <body>
     <div class="header">
@@ -39,12 +39,6 @@
                 </svg>
                 <p>SHOP</p>
             </a>
-            <a href="../../../resources/menu/cart.html">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </svg>
-                <p>CART</p>
-            </a>
         </div>
     </div>
     <div class="sec2">
@@ -52,13 +46,39 @@
             CART
         </div>
         <div class="img-bar">
-            <div class="box">
-                <img src="imgs/1.jpeg">
-                <p>Item 1</p>
+            <div class="row">
+                <img src="../imgs/1.jpeg">
+                <div class="item-info">
+                    <p>Item 1</p>
+                </div>
+                <div class="cart-quantity">
+                    <div class="Price">
+                        Price: Rs.100.00
+                    </div>
+                    <div class="quantity">
+                        <input class="cart-quantity-input" type="number" value="1">
+                    </div>
+                    <div class="remove">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
             </div>
-            <div class="box">
-                <img src="imgs/2.jpeg">
-                <p>Item 2</p>
+            <div class="row">
+                <img src="../imgs/2.jpeg">
+                <div class="item-info">
+                    <p>Item 2</p>
+                </div>
+                <div class="cart-quantity">
+                    <div class="Price">
+                        Price: Rs.100.00
+                    </div>
+                    <div class="quantity">
+                        <input class="cart-quantity-input" type="number" value="1">
+                    </div>
+                    <div class="remove">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

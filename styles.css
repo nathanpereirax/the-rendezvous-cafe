@@ -57,6 +57,7 @@ body {
     background: hsl(0 0% 0% / 0.75);
     flex-direction: column;
     justify-content: center;
+    padding-top: 20%;
     transform: translateX(100%);
     transition: transform 350ms ease-out;
   }
@@ -86,6 +87,8 @@ body {
   }
   .mobile-nav-toggle[aria-expanded="true"] {
     background-image: url("resources/x.svg");
+    position: fixed;
+    inset: 5% 0 0 85%;
   }
 
   .navbar > a {
