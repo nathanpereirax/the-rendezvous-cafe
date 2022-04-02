@@ -33,24 +33,6 @@ function ready()
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
-function addToCartClicked(event)
-{
-    var button = event.target
-    var shopItem = button.parentElement.parentElement
-    var title = shopItem.getElementsByClassName('shop-item-title')
-}
-
-function purchaseClicked()
-{
-    alert('Thank you for your purchase')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    while (cartItems.hasChildNodes())
-    {
-        cartItems.removeChild(cartItems.firstChild)
-    }
-    updateCartTotal()
-}
-
 function removeCartItem(event)
 {
     var buttonClicked = event.target
@@ -66,6 +48,33 @@ function quantityChanged(event)
         input.value = 1
     }
     updateCartTotal()
+}
+
+function addToCartClicked(event)
+{
+    var button = event.target
+    var shopItem = button.parentElement.parentElement
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+    var imageSrc = shopItem.getElementsByClassName('shop-item-img')[0].src
+    addItemToCart(title, price, imageSrc)
+    updateCartTotal()
+}
+
+function addItemToCart(title, price, imageSrc)
+{
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemNames.length; i++)
+    {
+        if (cartItemNames[i].innerText == title)
+        {
+            alert('This item is already added to the cart')
+            return
+        }
+    }
 }
 
 function updateCartTotal()
@@ -84,4 +93,15 @@ function updateCartTotal()
     }
     total = Math.round(total*100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = 'Rs. ' + total
+}
+
+function purchaseClicked()
+{
+    alert('Thank you for your purchase')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    while (cartItems.hasChildNodes())
+    {
+        cartItems.removeChild(cartItems.firstChild)
+    }
+    updateCartTotal()
 }

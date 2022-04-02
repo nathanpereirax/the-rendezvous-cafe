@@ -160,29 +160,43 @@ body {
   }
 }
 
-.box > img {
+.shop-item-img {
   width: 30vw;
   height: 30vw;
 }
 
 @media screen and (min-width: 70em) {
-  .box > img {
+  .shop-item-img {
     width: 15vw;
     height: 15vw;
     object-fit: cover;
   }
 }
 
-.box > p {
+.shop-item-title {
   font-size: 0.8rem;
+  font-weight: bold;
   color: #006d77;
   margin-inline: 20%;
   margin-top: 10%;
   background-color: #edf6f9;
 }
 @media screen and (min-width: 50em) {
-  .box p {
+  .shop-item-title {
     font-size: 1.3rem;
+  }
+}
+
+.shop-item-price {
+  font-size: 0.65rem;
+  color: #006d77;
+  margin-inline: 20%;
+  background-color: #edf6f9;
+}
+  
+@media screen and (min-width: 50em) {
+  .shop-item-price {
+    font-size: 1.1rem;
   }
 }
 
