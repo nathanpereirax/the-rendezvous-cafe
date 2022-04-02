@@ -112,11 +112,18 @@ body {
   flex-direction: column;
   color: #1f2937;
   align-items: center;
-  padding-top: 50px;
-  padding-bottom: 100px;
+  padding-top: 5%;
+  padding-bottom: 10%;
   margin-inline: auto;
   width: min(90%, 70.5rem);
 }
+
+@media screen and (min-width: 55em) {
+  .sec2 {
+    padding-bottom: 5%;
+  }
+}
+
 .title {
   background-color: #edf6f9;
   font-size: 10vw;
@@ -186,7 +193,7 @@ body {
 
 .add-to-cart > button {
   background-color: #83c5be;
-  color: #e5e7eb;background-color: #83c5be;
+  color: #e5e7eb;
   border: 2px solid #83c5be;
   color: #ffffff;
   font-weight: bold;
@@ -215,8 +222,7 @@ body {
   flex-direction: column;
   color: #1f2937;
   align-items: center;
-  padding-top: 50px;
-  padding-bottom: 100px;
+  padding-bottom: 10%;
   margin-inline: auto;
   width: min(90%, 70.5rem);
 }
@@ -232,6 +238,7 @@ body {
 
 @media screen and (max-width: 55em) {
   .cart-img-bar {
+    width: 100%;
     flex-wrap: nowrap;
   }
   .cart-quantity{
@@ -268,7 +275,7 @@ body {
   }
 }
 
-.cart-item > p {
+.item-info > p {
   font-size: 0.8rem;
   color: #006d77;
   margin-inline: 20%;
@@ -276,7 +283,7 @@ body {
   background-color: #edf6f9;
 }
 @media screen and (min-width: 50em) {
-  .cart-item > p {
+  .item-info > p {
     font-size: 1.3rem;
   }
 }
@@ -289,6 +296,12 @@ body {
   width: 80%;
 }
 
+@media screen and (max-width: 55em) {
+  .cart-quantity {
+    font-size: 0.8rem;
+  }
+}
+
 .quantity > input {
   width: 25%;
 }
@@ -296,10 +309,51 @@ body {
 .remove > button {
   background-color: #cf4444;
   color: #e5e7eb;
+  font-size: 1em;
   padding-inline: 20%;
   padding-block: 15%;
+  border-radius: 8px;
 }
 
+@media screen and (max-width: 55em) {
+  .remove > button{
+    font-size: 0.8em;
+  }
+}
+
+.order-now {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}
+
+.order-btn {
+  white-space: nowrap;
+  background-color: #83c5be;
+  color: #e5e5e5;
+  border: 2px solid #83c5be;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  padding: 15% 15%;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition-duration: 0.4s;
+}
+
+.order-btn:hover {
+  background-color:#006d77;
+  color: #ffffff;
+  border: 2px solid #8a8a8a ;
+}
+
+@media screen and (max-width: 55em){
+  .order-btn{
+    font-size: 0.55rem;
+  }
+}
 
 .container-footer {
   background-color: #006d77;
