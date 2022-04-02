@@ -75,7 +75,7 @@ body {
 
   .mobile-nav-toggle {
     margin-right: 5%;
-    background-image: url("resources/hamburger-menu.svg");
+    background-image: url("imgs/hamburger-menu.svg");
     background-color: transparent;
     background-repeat: no-repeat;
     border: 0;
@@ -86,7 +86,7 @@ body {
     aspect-ratio: 1;
   }
   .mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("resources/x.svg");
+    background-image: url("imgs/x.svg");
     position: fixed;
     inset: 5% 0 0 85%;
   }
