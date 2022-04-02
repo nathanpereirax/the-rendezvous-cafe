@@ -65,8 +65,8 @@ function addItemToCart(title, price, imageSrc)
 {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    var cartImgBar = document.getElementsByClassName('cart-img-bar')[0]
+    var cartItemNames = cartImgBar.getElementsByClassName('cart-item-title')
     for (var i = 0; i < cartItemNames.length; i++)
     {
         if (cartItemNames[i].innerText == title)
@@ -75,6 +75,29 @@ function addItemToCart(title, price, imageSrc)
             return
         }
     }
+    var cartRowContents = `
+        <div class="cart-item">
+            <img class="shop-item-img" src="../../imgs/menu1.jpeg">
+            <div class="item-info">
+                    <p>Item 1</p>
+                </div>
+            </div>
+            <div class="cart-quantity">
+                <div class="price">
+                    <span>Price: </span>Rs. 100
+                </div>
+                <div class="quantity">
+                    Quantity:
+                    <input class="cart-quantity-input" type="number" value="1">
+                </div>
+                <div class="remove">
+                    <button class="btn btn-danger" type="button">REMOVE</button>
+                </div>
+            </div>`
+    cartRow.innerHTML = cartRowContents
+    cartImgBar.append(cartRow)
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
 
 function updateCartTotal()
@@ -98,10 +121,10 @@ function updateCartTotal()
 function purchaseClicked()
 {
     alert('Thank you for your purchase')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    while (cartItems.hasChildNodes())
+    var cartImgBar = document.getElementsByClassName('cart-img-bar')[0]
+    while (cartImgBar.hasChildNodes())
     {
-        cartItems.removeChild(cartItems.firstChild)
+        cartImgBar.removeChild(cartImgBar.firstChild)
     }
     updateCartTotal()
 }
