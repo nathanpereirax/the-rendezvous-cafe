@@ -289,19 +289,6 @@ body {
   }
 }
 
-.item-info > p {
-  font-size: 0.8rem;
-  color: #006d77;
-  margin-inline: 20%;
-  margin-top: 10px;
-  background-color: #edf6f9;
-}
-@media screen and (min-width: 50em) {
-  .item-info > p {
-    font-size: 1.3rem;
-  }
-}
-
 .cart-quantity {
   display: flex;
   flex-direction: column;

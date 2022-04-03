@@ -1,3 +1,4 @@
+var count = 0
 if(document.readyState == 'loading')
 {
     document.addEventListener('DOMContentLoaded', ready)
@@ -38,6 +39,7 @@ function removeCartItem(event)
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.parentElement.remove()
     updateCartTotal()
+    count--
 }
 
 function quantityChanged(event)
@@ -59,32 +61,34 @@ function addToCartClicked(event)
     var imageSrc = shopItem.getElementsByClassName('shop-item-img')[0].src
     addItemToCart(title, price, imageSrc)
     updateCartTotal()
+    count++
 }
 
 function addItemToCart(title, price, imageSrc)
 {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
+
     var cartImgBar = document.getElementsByClassName('cart-img-bar')[0]
-    var cartItemNames = cartImgBar.getElementsByClassName('cart-item-title')
-    for (var i = 0; i < cartItemNames.length; i++)
+    var cartItemTitle = cartImgBar.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemTitle.length; i++)
     {
-        if (cartItemNames[i].innerText == title)
+        if (cartItemTitle[i].innerText == title)
         {
-            alert('This item is already added to the cart')
+            alert('This item is already added to the cart. Increase the quantity in the cart to purchase more.')
             return
         }
     }
     var cartRowContents = `
         <div class="cart-item">
-            <img class="shop-item-img" src="../../imgs/menu1.jpeg">
+            <img class="shop-item-img" src="${imageSrc}">
             <div class="item-info">
-                    <p>Item 1</p>
+                    <p class="shop-item-title cart-item-title">${title}</p>
                 </div>
             </div>
             <div class="cart-quantity">
                 <div class="price">
-                    <span>Price: </span>Rs. 100
+                    <span>Price: </span>${price}
                 </div>
                 <div class="quantity">
                     Quantity:
@@ -120,11 +124,19 @@ function updateCartTotal()
 
 function purchaseClicked()
 {
-    alert('Thank you for your purchase')
     var cartImgBar = document.getElementsByClassName('cart-img-bar')[0]
-    while (cartImgBar.hasChildNodes())
+    if(count > 0)
     {
-        cartImgBar.removeChild(cartImgBar.firstChild)
+        alert('Thank you for your order!')
+        while (cartImgBar.hasChildNodes())
+        {
+            cartImgBar.removeChild(cartImgBar.firstChild)
+        }
+        updateCartTotal()
+        count = 0
     }
-    updateCartTotal()
+    else
+    {
+        alert('Cart is empty. Please add items to cart to order.')
+    }
 }
