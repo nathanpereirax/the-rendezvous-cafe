@@ -151,11 +151,12 @@ body {
   font-size: 16px;
   color: #e5e7eb;
 }
-.sign-up {
-  margin-top: 20px;
+.link-buttons {
+  margin-top: 5%;
   z-index: 100;
 }
-.sign-up button {
+
+.link-buttons > a > button {
   background-color: #83c5be;
   border: 2px solid #83c5be;
   color: #ffffff;
@@ -168,11 +169,12 @@ body {
   transition-duration: 0.4s;
 }
 
-.sign-up button:hover {
+.link-buttons > a > button:hover {
   background-color: white;
   color: #1f2937;
   border: 2px solid white;
 }
+
 .info-img {
   display: flex;
   align-items: center;
