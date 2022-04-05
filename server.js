@@ -16,7 +16,7 @@ const stripe = require('stripe')(stripeSecretKey)
 
 app.set('view engine', 'ejs')
 app.use(express.json())
-app.use(express.static('public'))
+app.use(express.static('public'))   
 
 app.get('/menu', function(req, res)
 {
