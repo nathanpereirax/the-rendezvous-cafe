@@ -1,4 +1,3 @@
-var count = 0
 if(document.readyState == 'loading')
 {
     document.addEventListener('DOMContentLoaded', ready)
@@ -39,7 +38,6 @@ function removeCartItem(event)
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.parentElement.remove()
     updateCartTotal()
-    count--
 }
 
 function quantityChanged(event)
@@ -59,16 +57,16 @@ function addToCartClicked(event)
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     var imageSrc = shopItem.getElementsByClassName('shop-item-img')[0].src
-    addItemToCart(title, price, imageSrc)
+    var id = shopItem.dataset.itemId
+    addItemToCart(title, price, imageSrc, id)
     updateCartTotal()
-    count++
 }
 
-function addItemToCart(title, price, imageSrc)
+function addItemToCart(title, price, imageSrc, id)
 {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
-
+    cartRow.dataset.itemId = id
     var cartImgBar = document.getElementsByClassName('cart-img-bar')[0]
     var cartItemTitle = cartImgBar.getElementsByClassName('cart-item-title')
     for (var i = 0; i < cartItemTitle.length; i++)
@@ -122,21 +120,57 @@ function updateCartTotal()
     document.getElementsByClassName('cart-total-price')[0].innerText = 'Rs. ' + total
 }
 
+var stripeHandler = StripeCheckout.configure({
+    key: stripePublicKey,
+    locale: 'auto',
+    token: function(token) {
+        var items = []
+        var cartItemContainer = document.getElementsByClassName('cart-img-bar')[0]
+        var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+        for (var i = 0; i < cartRows.length; i++)
+        {
+            var cartRow = cartRows[i]
+            var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+            var quantity = quantityElement.value
+            var id = cartRow.dataset.itemId
+            items.push({
+                id: id,
+                quantity: quantity
+            })
+        }
+
+        fetch('/purchase', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                stripeTokenId: token.id,
+                items: items
+            })
+        }).then(function(res) {
+            return res.json()
+        }).then(function(data) {
+            alert(data.message)
+            while (cartImgBar.hasChildNodes())
+            {
+                cartImgBar.removeChild(cartImgBar.firstChild)
+            }
+            updateCartTotal()
+        }).catch(function(error) {
+            console.error(error)
+        })
+    }
+})
+
 function purchaseClicked()
 {
-    var cartImgBar = document.getElementsByClassName('cart-img-bar')[0]
-    if(count > 0)
-    {
-        alert('Thank you for your order!')
-        while (cartImgBar.hasChildNodes())
-        {
-            cartImgBar.removeChild(cartImgBar.firstChild)
-        }
-        updateCartTotal()
-        count = 0
-    }
-    else
-    {
-        alert('Cart is empty. Please add items to cart to order.')
-    }
+    var priceElement = document.getElementsByClassName('cart-total-price')[0]
+    var price = parseFloat(priceElement.innerText.replace('Rs. ','')*100)
+    console.log(price)
+    stripeHandler.open({
+        amount: price,
+        currency: 'inr'
+    })
 }

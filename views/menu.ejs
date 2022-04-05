@@ -10,7 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>The Rendezvous Café - Menu</title>
     <script src="../../js/nav.js" defer></script>
-    <script src="../../js/store.js" async></script>
+    <script src="https://checkout.stripe.com/checkout.js" defer></script>
+    <script src="../../js/store.js" defer></script>
+    <script>
+        var stripePublicKey = '<%= stripePublicKey %>'
+    </script>
 </head>
 <body>
     <div class="header">
@@ -72,7 +76,7 @@
         <div class="cart-img-bar">
         </div>
         <div class="total">
-            <p>Total: <span class="cart-total-price">Rs. 0.00</span></p>
+            <p>Total: <span class="cart-total-price">Rs. 0</span></p>
         </div>
         <div class="order-now">
             <div class="order">
