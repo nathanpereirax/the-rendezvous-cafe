@@ -132,7 +132,7 @@ var stripeHandler = StripeCheckout.configure({
             var cartRow = cartRows[i]
             var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
             var quantity = quantityElement.value
-            var id = cartRow.dataset.itemId
+            var id = parseInt(cartRow.dataset.itemId)
             items.push({
                 id: id,
                 quantity: quantity
@@ -149,13 +149,11 @@ var stripeHandler = StripeCheckout.configure({
                 stripeTokenId: token.id,
                 items: items
             })
-        }).then(function(res) {
-            return res.json()
-        }).then(function(data) {
-            alert(data.message)
-            while (cartImgBar.hasChildNodes())
+        }).then(function() {
+            alert('Successfully purchased items')
+            while (cartItemContainer.hasChildNodes())
             {
-                cartImgBar.removeChild(cartImgBar.firstChild)
+                cartItemContainer.removeChild(cartItemContainer.firstChild)
             }
             updateCartTotal()
         }).catch(function(error) {

@@ -50,27 +50,31 @@ app.post('/purchase', function(req, res)
             const itemsJson = JSON.parse(data)
             const itemsArray = itemsJson.storeItems
             let total = 0
-            req.body.items.forEach(function(item)
-            {
-                const itemJson = itemsArray.find(function(i)
-                {
-                    return i.id == item.id
+            req.body.items.forEach(function(item) {
+                const itemJson = itemsArray.filter(function(i) {
+                    return (i.id == item.id)
                 })
-                total = total + itemJson.price * item.quantity
+                total = total + (itemJson[0].price * parseInt(item.quantity))
             })
-
             total = total * 100
-            stripe.charges.create({
+            
+            const paymentIntent = stripe.paymentIntents.create({
                 amount: total,
-                source: req.body.stripeTokenId,
-                currency: 'inr'
+                // source: req.body.stripeTokenId,
+                currency: 'inr',
+                automatic_payment_methods: {
+                    enabled: true,
+                }
             }).then(function() {
                 console.log('Charge successful')
-                res.json({ message: 'Successfully purchased items' })
-            }).cath(function() {
+            }).catch(function(error) {
+                console.log(error)
                 console.log('Charge failed')
                 res.status(500).end()
             })
+            res.send({
+                clientSecret: paymentIntent.client_secret,
+            });
         }
     })
 })
