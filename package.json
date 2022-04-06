@@ -2,7 +2,7 @@
   "name": "the-rendezvous-cafe",
   "version": "1.0.0",
   "description": "Official website for The Rendezvous Café.",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "node server.js"
   },
