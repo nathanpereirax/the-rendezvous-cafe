@@ -406,15 +406,29 @@ body {
 .contact-us > h2 {
   padding-bottom: 0.8rem;
 }
+
+.contact-us > p {
+  font-weight: bold;
+}
+
 .contact-us > p > a:link,
 :visited,
 :active {
   color: #e5e7eb;
   text-decoration: none;
+  font-weight: normal;
+  background-image: linear-gradient(#e5e7eb, #e5e7eb);
+  background-size: 0% 0.1em;
+  background-position-y: 100%;
+  background-position-x: 0%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease-in-out;
 }
 .contact-us > p > a:hover {
   color: #e5e7eb;
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  font-weight: normal;
+  background-size: 100% 0.1em;
 }
 
 @media screen and (max-width: 50em) {
