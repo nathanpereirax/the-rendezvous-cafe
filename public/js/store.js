@@ -166,7 +166,6 @@ function purchaseClicked()
 {
     var priceElement = document.getElementsByClassName('cart-total-price')[0]
     var price = parseFloat(priceElement.innerText.replace('Rs. ','')*100)
-    console.log(price)
     stripeHandler.open({
         amount: price,
         currency: 'inr'
