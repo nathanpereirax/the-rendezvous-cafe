@@ -45,7 +45,7 @@ h1::after {
     width: 0.125em;
     background: var(--text-color);
     animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
-        blink 750ms steps(var(--typewriterCharacters)) infinite;
+        blink 900ms steps(var(--typewriterCharacters)) infinite;
 }
 
 .subtitle {
