@@ -152,6 +152,11 @@ body {
   font-size: 16px;
   color: #e5e7eb;
 }
+
+.imp {
+  font-weight: bold;
+}
+
 .sign-up {
   margin-top: 20px;
   z-index: 100;
