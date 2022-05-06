@@ -1,0 +1,217 @@
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url("../../imgs/background.png");
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    overflow-x: hidden;
+}
+
+.header {
+    display: flex;
+    background-color: #1f2937;
+    color: #f9faf8;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo>a>img {
+    display: flex;
+    padding-left: 5%;
+    width: 20%;
+    min-width: 100px;
+    height: auto;
+}
+
+@media (min-width: 55em) {
+    .navbar {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 3%;
+    }
+
+    .navbar>a {
+        color: #e5e7eb;
+        text-decoration: none;
+        margin-inline: min(3vw, 1rem);
+    }
+
+    .navbar>a>svg {
+        fill: #e5e7eb;
+        width: 30px;
+        aspect-ratio: 1;
+    }
+
+    .navbar>a>p {
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 55em) {
+    .navbar {
+        display: flex;
+        z-index: 500;
+        position: fixed;
+        inset: 0 0 0 30%;
+        background-color: hsl(0 0% 0% / 0.75);
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 20%;
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+    }
+
+    @supports (backdrop-filter: blur(1rem)) {
+        .navbar {
+            background-color: hsl(0 0% 0% / 0.5);
+            backdrop-filter: blur(1rem);
+        }
+    }
+
+    .navbar[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-toggle {
+        margin-right: 5%;
+        background-image: url("../../imgs/hamburger-menu.svg");
+        background-color: transparent;
+        background-repeat: no-repeat;
+        border: 0;
+        z-index: 9999;
+        width: 10%;
+        max-width: 2em;
+        min-width: 1.8rem;
+        aspect-ratio: 1;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url("../../imgs/x.svg");
+        position: fixed;
+        inset: 5% 0 0 85%;
+    }
+
+    .navbar>a {
+        color: #e5e7eb;
+        text-decoration: none;
+        margin: 1vw;
+        padding-block: 1vh;
+    }
+
+    .navbar>a>svg {
+        fill: #e5e7eb;
+        width: 30px;
+    }
+}
+
+.sec2 {
+    min-height: 26vh;
+    display: flex;
+    flex-direction: column;
+    color: #1f2937;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    margin-inline: auto;
+    width: min(90%, 70.5rem);
+}
+
+@media screen and (min-width: 55em) {
+    .sec2 {
+        padding-bottom: 5%;
+    }
+}
+
+.title {
+    background-color: #edf6f9;
+    font-size: 10vw;
+    font-weight: bolder;
+    color: #006d77;
+    font-family: Montserrat;
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 40em) {
+    .title {
+        font-size: 40px;
+    }
+}
+
+.container-footer {
+    background-color: #006d77;
+}
+
+.footer {
+    display: flex;
+    margin-inline: auto;
+    width: min(90%, 70.5rem);
+    color: #e5e7eb;
+    padding-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-us {
+    text-align: left;
+    width: min(50%, 35.25rem);
+    padding-inline: 5%;
+}
+
+.contact-us>h2 {
+    padding-bottom: 0.8rem;
+}
+
+.contact-us>p {
+    font-weight: bold;
+}
+
+.contact-us>p>a:link,
+:visited,
+:active {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: normal;
+    background-image: linear-gradient(#e5e7eb, #e5e7eb);
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s ease-in-out;
+}
+
+.contact-us>p>a:hover {
+    color: #e5e7eb;
+    /* text-decoration: underline; */
+    font-weight: normal;
+    background-size: 100% 0.1em;
+}
+
+@media screen and (max-width: 50em) {
+    .contact-us {
+        font-size: 0.75rem;
+    }
+
+    .contact-us>h2 {
+        font-size: 0.9rem;
+    }
+}
+
+.logo {
+    width: min(50%, 35.25rem);
+}
+
+.logo>img {
+    width: 40%;
+    min-width: 8rem;
+    height: auto;
+}

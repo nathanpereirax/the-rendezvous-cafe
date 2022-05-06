@@ -20,11 +20,6 @@ var con = mysql.createConnection({
 					database: process.env.database
 				});
 
-con.connect(function(err) {
-	if (err) throw err;
-	console.log("Database connected!");
-});
-
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.static('public'))
@@ -33,22 +28,37 @@ module.exports = app
 
 app.get('/menu', function(req, res)
 {
-		fs.readFile('items.json', function(error, data)
+	fs.readFile('items.json', function(error, data)
+	{
+		if(error)
 		{
-				if(error)
-				{
-						res.status(500).end()
-				}
-				else
-				{
-						res.render('menu.ejs',
-						{
-								stripePublicKey: stripePublicKey,
-								items: JSON.parse(data)
-						})
-				}
-		})
+			res.status(500).end()
+		}
+		else
+		{
+			res.render('menu.ejs',
+			{
+				stripePublicKey: stripePublicKey,
+				items: JSON.parse(data)
+			})
+		}
+	})
 })
+
+app.get('/admin', function(req, res)
+{
+	res.render('admin.ejs',{})
+})
+
+con.connect(function(err)
+{
+	if (err) throw err;
+  	con.query("SELECT * FROM orderList", function (err, result, fields)
+	{
+    	if (err) throw err;
+    	console.log(result);
+	});
+});
 
 app.post('/purchase', function(req, res)
 {
@@ -69,6 +79,19 @@ app.post('/purchase', function(req, res)
 								})
 								total = total + (itemJson[0].price * parseInt(item.quantity))
 								console.log(itemJson[0].name, item.quantity, req.body.uid)
+								var a = req.body.uid
+								var b = itemJson[0].name
+								var c = item.quantity
+								console.log(a, b, c)
+								con.connect(function(err) {
+  									if (err) throw err;
+  									console.log("Database Connected!");
+  									var sql = "INSERT INTO orderList (Userid, Item, Quantity) VALUES ('"+a+"', '"+b+"', '"+c+"')";
+  									con.query(sql, function (err, result) {
+    									if (err) throw err;
+    									console.log("1 record inserted, ID: " + result.insertId);
+  									});
+								});
 						})
 						total = total * 100
 						const paymentIntent = stripe.paymentIntents.create({
