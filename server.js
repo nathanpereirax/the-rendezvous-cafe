@@ -6,7 +6,6 @@ if(process.env.NODE_ENV !== 'production')
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
 
-
 const express = require('express')
 const app = express()
 const fs = require('fs')
@@ -73,6 +72,7 @@ app.post('/purchase', function(req, res)
 						const itemsJson = JSON.parse(data)
 						const itemsArray = itemsJson.storeItems
 						let total = 0
+						let i=0
 						req.body.items.forEach(function(item) {
 								const itemJson = itemsArray.filter(function(i) {
 										return (i.id == item.id)
@@ -99,7 +99,8 @@ app.post('/purchase', function(req, res)
 								currency: 'inr',
 								automatic_payment_methods: {
 										enabled: true,
-								}
+								},
+								receipt_email: req.body.uid
 						}).then(function() {
 								console.log('Charge successful')
 						}).catch(function(error) {

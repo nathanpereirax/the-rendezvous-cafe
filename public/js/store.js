@@ -180,14 +180,14 @@ function purchaseClicked()
 		var i = 1
 		while(i)
 		{
-				userid = prompt('Enter your email/phone number to place the order:')
-				if(validatePhoneNumber(userid) || validateEmail(userid))
+				userid = prompt('Enter your email id to place the order:')
+				if(validateEmail(userid))
 				{
 					i = 0
 				}
 				else
 				{
-						alert('Invalid email/phone number.')
+						alert('Invalid email.')
 				}
 		}
 		var priceElement = document.getElementsByClassName('cart-total-price')[0]
