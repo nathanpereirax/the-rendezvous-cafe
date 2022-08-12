@@ -6,6 +6,9 @@ if(process.env.NODE_ENV !== 'production')
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
 
+const admin = process.env.admin
+const adminPass = process.env.adminPass
+
 const express = require('express')
 const app = express()
 const fs = require('fs')
@@ -44,20 +47,29 @@ app.get('/menu', function(req, res)
 	})
 })
 
-app.get('/admin', function(req, res)
+app.get('/login', function(req, res)
 {
-	res.render('admin.ejs',{})
+	res.render('login.ejs', {
+		user: admin,
+		pass: adminPass
+	})
 })
 
-con.connect(function(err)
+app.get('/admin', function(req, res)
 {
-	if (err) throw err;
-  	con.query("SELECT * FROM orderList", function (err, result, fields)
+	con.connect(function(err)
 	{
-    	if (err) throw err;
-    	console.log(result);
+		if (err) {
+			throw err;
+			res.render('admin.ejs', {data: ''})
+		}
+  		con.query("SELECT * FROM orderList", function (err, result, fields)
+		{
+    		if (err) throw err;
+			res.render('admin.ejs', {data: result})
+		});
 	});
-});
+})
 
 app.post('/purchase', function(req, res)
 {
@@ -78,15 +90,14 @@ app.post('/purchase', function(req, res)
 										return (i.id == item.id)
 								})
 								total = total + (itemJson[0].price * parseInt(item.quantity))
-								console.log(itemJson[0].name, item.quantity, req.body.uid)
 								var a = req.body.uid
 								var b = itemJson[0].name
 								var c = item.quantity
-								console.log(a, b, c)
+								var d = (itemJson[0].price * parseInt(item.quantity))
 								con.connect(function(err) {
   									if (err) throw err;
   									console.log("Database Connected!");
-  									var sql = "INSERT INTO orderList (Userid, Item, Quantity) VALUES ('"+a+"', '"+b+"', '"+c+"')";
+  									var sql = "INSERT INTO orderList (Userid, Item, Quantity, Total) VALUES ('"+a+"', '"+b+"', '"+c+"', '"+d+"')";
   									con.query(sql, function (err, result) {
     									if (err) throw err;
     									console.log("1 record inserted, ID: " + result.insertId);

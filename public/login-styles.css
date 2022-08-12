@@ -3,8 +3,7 @@ body {
     margin: 0;
     text-align: center;
     font-family: "Montserrat", sans-serif;
-    display: flex;
-    flex-direction: column;
+
     background-image: url("../../imgs/background.png");
     background-position: center;
     background-repeat: repeat;
@@ -114,136 +113,84 @@ body {
     }
 }
 
-.sec2 {
-    min-height: 26vh;
-    display: flex;
-    flex-direction: column;
+.login {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    padding: 2%;
+
+    backdrop-filter: blur(14px) saturate(65%);
+    -webkit-backdrop-filter: blur(14px) saturate(65%);
+    background-color: rgba(238, 238, 238, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
+            0 2px 2px rgba(0, 0, 0, 0.12),
+            0 4px 4px rgba(0, 0, 0, 0.12),
+            0 8px 8px rgba(0, 0, 0, 0.12),
+            0 16px 16px rgba(0, 0, 0, 0.12);
+
+    border-radius: 5%;
+}
+
+.login > h2 {
     color: #1f2937;
-    align-items: center;
-    padding-top: 5%;
-    padding-bottom: 10%;
-    margin-inline: auto;
-    width: min(90%, 70.5rem);
-}
-
-@media screen and (min-width: 55em) {
-    .sec2 {
-        padding-bottom: 5%;
-    }
-}
-
-.title {
-    background-color: #edf6f9;
-    font-size: 10vw;
-    font-weight: bolder;
-    color: #006d77;
     font-family: Montserrat;
     text-decoration: underline;
 }
 
-@media screen and (min-width: 40em) {
-    .title {
-        font-size: 40px;
-    }
+.login > form > p {
+    padding: 2%;
 }
 
-.table-orders {
-    padding: 1%;
-    width: 90%;
+.login>form>p>input {
+
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 4px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-@media screen and (max-width: 55em) {
-    .table-orders {
-            font-size: 3vw;
-            padding-block: 30%;
-        }
+.login>form>p>input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 
-.table-orders>thead {
-    background: #006d77;
-}
-
-.table-orders>thead>tr>th {
+.login>form>p>button {
+    cursor: pointer;
+    outline: 0;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 6px 12px;
     font-size: 1rem;
-    padding: 1%;
-    border: 1px solid;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    color: #006d77;
+    border-color: #006d77;
 }
 
-.table-orders>tbody {
-    background: #e5e7eb;
-}
-
-.table-orders>tbody>tr>td {
-    min-width: fit-content;
-    padding: 1%;
-    border: 1px solid;
-}
-
-.container-footer {
+.login>form>p>button:hover {
+    color: #fff;
     background-color: #006d77;
-}
-
-.footer {
-    display: flex;
-    margin-inline: auto;
-    width: min(90%, 70.5rem);
-    color: #e5e7eb;
-    padding-top: 1rem;
-    align-items: center;
-    justify-content: center;
-}
-
-.contact-us {
-    text-align: left;
-    width: min(50%, 35.25rem);
-    padding-inline: 5%;
-}
-
-.contact-us>h2 {
-    padding-bottom: 0.8rem;
-}
-
-.contact-us>p {
-    font-weight: bold;
-}
-
-.contact-us>p>a:link,
-:visited,
-:active {
-    color: #e5e7eb;
-    text-decoration: none;
-    font-weight: normal;
-    background-image: linear-gradient(#e5e7eb, #e5e7eb);
-    background-size: 0% 0.1em;
-    background-position-y: 100%;
-    background-position-x: 0%;
-    background-repeat: no-repeat;
-    transition: background-size 0.5s ease-in-out;
-}
-
-.contact-us>p>a:hover {
-    color: #e5e7eb;
-    /* text-decoration: underline; */
-    font-weight: normal;
-    background-size: 100% 0.1em;
-}
-
-@media screen and (max-width: 50em) {
-    .contact-us {
-        font-size: 0.75rem;
-    }
-
-    .contact-us>h2 {
-        font-size: 0.9rem;
-    }
-}
-
-.logo {
-    width: min(50%, 35.25rem);
-}
-
-.logo>img {
-    width: 40%;
-    min-width: 8rem;
-    height: auto;
+    border-color: #006d77;
 }
